@@ -14,6 +14,18 @@ const name = ['November Rain', 'Wild and Free', 'Superstition', 'Vivaldi\'s Wint
 const rng = number => Math.floor(Math.random() * number);
 
 //message generator function
-const randomMessageGenerator = () =>{
-  
+const randomMessageGenerator = (mood, genre, name) => {
+  //randomly select words from each array
+  let moodIndex = rng(mood.length);
+  let genreIndex = rng(genre.length);
+  let nameIndex = rng(name.length);
+
+  let moodWord = mood[moodIndex];
+  let genreWord = genre[genreIndex];
+  let nameWord = name[nameIndex];
+
+  let output = `Mood: ${moodWord}\nGenre: ${genreWord}\nName: ${nameWord}`
+  return output;
 }
+
+console.log(randomMessageGenerator(mood, genre, name));
